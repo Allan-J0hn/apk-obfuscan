@@ -1,6 +1,6 @@
 # APK Obfuscan
 
-Introduction
+## Introduction
 APK Obfuscan is a static analysis tool for detecting string obfuscation and hardcoded secrets
 
 ## Installation
@@ -28,12 +28,11 @@ pip install -r requirements.txt
 
 ## How to Use APK Obfuscan
 
-Analyze a Single APK
 To analyze a single APK file:
 python3 src/static_analyzer.py
 You will be prompted to enter the APK file path.
 
-Analyze Multiple APKs
+To analyze multiple APKs
 To scan a directory containing multiple APKs:
 python src/static_analyzer.py
 When prompted, enter the folder path containing the APK files.
