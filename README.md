@@ -1,9 +1,9 @@
-### APK Obfuscan
+# APK Obfuscan
 
 Introduction
-APK Obfuscan is a static analysis tool for detecting string obfuscation and hardcoded secrets>
+APK Obfuscan is a static analysis tool for detecting string obfuscation and hardcoded secrets
 
-## Installationy
+## Installation
 
 ### 1. Clone the Repository
 First, download the project from GitHub:
@@ -57,11 +57,6 @@ obfuscan-env\Scripts\activate     (Windows)
 
 Reinstall dependencies:
 pip install -r requirements.txt
-
-### 2. Error: Permission Denied
-If you encounter a permission error, try running:
-sudo python src/static_analyzer.py
-(Only needed on Linux/macOS in some cases.)
 
 ### Need Help?
 If you encounter issues, open a GitHub issue here: https://github.com/Allan-J0hn/apk-obfuscan>
