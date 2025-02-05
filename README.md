@@ -8,6 +8,7 @@ APK Obfuscan is a static analysis tool for detecting string obfuscation and hard
 ### 1. Clone the Repository
 First, download the project from GitHub:
 git clone https://github.com/Allan-J0hn/apk-obfuscan.git
+
 cd apk-obfuscan
 
 ### 2. Set Up a Virtual Environment
