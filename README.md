@@ -1,7 +1,12 @@
 # APK Obfuscan
 
 ## Introduction
-APK Obfuscan is a static analysis tool for detecting string obfuscation and hardcoded secrets
+APK Obfuscan is a static analysis tool designed to extract and analyze artifacts from Android APK files. It performs a two-stage analysis:
+
+    Stage 1: Extracts metadata, dex strings, resource strings, and preliminary secrets (such as API keys and tokens).
+    Stage 2: Deeply analyzes the extracted data, including categorizing strings, decoding Base64, flagging potentially obfuscated strings, and scanning for credentials and secrets.
+
+For very large outputs, the tool automatically breaks results into manageable chunks (e.g., "Potentially Obfuscated 1", "Potentially Obfuscated 2", etc.) so that each JSON file remains readable.
 
 ## Installation
 
@@ -37,13 +42,23 @@ To scan a directory containing multiple APKs:
 python src/static_analyzer.py
 When prompted, enter the folder path containing the APK files.
 
-Understanding the Output
-The script generates a CSV report (apk_analysis_results.csv) with the following details:
-- Extracted Strings: All readable strings from the APK.
-- Detected Secrets: API keys, JWT tokens, passwords, etc.
-- Obfuscation Indicators: Detects ProGuard/R8 obfuscation.
+## Understanding the output
+The tool produces JSON output files for each processed APK:
 
-This output helps determine whether further dynamic analysis (Frida) is necessary.
+Artifacts JSON (<apk_name>_artifacts.json):
+ Contains:
+  Extracted metadata (package name, version)
+  Dex and resource strings
+  Preliminary secrets detected using regex patterns
+
+Stage 2 Analysis JSON (<apk_name>_stage2.json):
+ Contains:
+  Categorized Strings: Strings are grouped (e.g., short, alphanumeric, general).
+  Decoded Base64 Strings: Successfully decoded Base64 strings.
+  Potentially Obfuscated Strings: High-entropy strings flagged as suspicious, split into chunks (e.g., "Potentially Obfuscated 1", "Potentially Obfuscated 2", etc.) if the list is large.
+  Detected Credentials and Secrets: API keys, JWT tokens, passwords, and similar items, also chunked when needed.
+
+This breakdown allows you to review the output without being overwhelmed by excessively large files. It also helps to decide if further dynamic analysis (e.g., using Frida) is required.
 
 ## Troubleshooting
 
@@ -59,5 +74,5 @@ Reinstall dependencies:
 pip install -r requirements.txt
 
 ### Need Help?
-If you encounter issues, open a GitHub issue here: https://github.com/Allan-J0hn/apk-obfuscan>
+If you encounter issues, open a GitHub issue here: https://github.com/Allan-J0hn/apk-obfuscan> or send an email to destiny.sagger4p@icloud.com
 
