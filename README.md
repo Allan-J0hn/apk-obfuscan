@@ -62,6 +62,13 @@ Stage 2 Analysis JSON (<apk_name>_stage2.json):
 
 This breakdown allows you to review the output without being overwhelmed by excessively large files. It also helps to decide if further dynamic analysis (e.g., using Frida) is required.
 
+## Disclaimer
+
+This tool is intended for educational and research purposes only. The author does not endorse or support any illegal activities, and this tool should only be used on applications you have explicit permission to analyze. 
+
+By using this tool, you agree that the author is not responsible for any misuse, damages, or legal consequences resulting from its usage. Ensure you comply with all applicable laws and regulations before using this software.
+
+
 ## Troubleshooting
 
 ### 1. Error: ModuleNotFoundError
