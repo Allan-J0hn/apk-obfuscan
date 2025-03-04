@@ -83,5 +83,5 @@ Reinstall dependencies:
 pip install -r requirements.txt
 
 ### Need Help?
-If you encounter issues, open a GitHub issue here: https://github.com/Allan-J0hn/apk-obfuscan> or send an email to destiny.sagger4p@icloud.com
+If you encounter issues, open a GitHub issue here: https://github.com/Allan-J0hn/apk-obfuscan> or send an email to wired_idioms.0e@icloud.com
 
