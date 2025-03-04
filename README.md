@@ -47,12 +47,14 @@ The tool produces JSON output files for each processed APK:
 
 Artifacts JSON (<apk_name>_artifacts.json):
  Contains:
+ 
   Extracted metadata (package name, version)
   Dex and resource strings
   Preliminary secrets detected using regex patterns
 
 Stage 2 Analysis JSON (<apk_name>_stage2.json):
  Contains:
+ 
   Categorized Strings: Strings are grouped (e.g., short, alphanumeric, general).
   Decoded Base64 Strings: Successfully decoded Base64 strings.
   Potentially Obfuscated Strings: High-entropy strings flagged as suspicious, split into chunks (e.g., "Potentially Obfuscated 1", "Potentially Obfuscated 2", etc.) if the list is large.
