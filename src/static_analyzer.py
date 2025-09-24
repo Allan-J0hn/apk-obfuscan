@@ -140,13 +140,26 @@ def is_definite_noise(s):
     return False
 
 def is_potential_base64(s):
-    # Minimal check: must be at least 24 chars, matches base64 chars/padding
-    base64_pattern = r'^[A-Za-z0-9+/]+={0,2}$'
-    if len(s) < 24:
+    """
+    How the function checks if a string is likely to be base64 encoded.
+    Conditions:
+    - Strip whitespace
+    - Length at least 8
+    - Length multiple of 4
+    - Matches base64 character set with optional padding
+    """
+    s = s.strip()
+    if len(s) < 8 or len(s) % 4 != 0:
         return False
+    base64_pattern = r'^[A-Za-z0-9+/]+={0,2}$'
     return bool(re.match(base64_pattern, s))
 
+
 def single_pass_base64_decode(s):
+    """
+    Attempts a single-pass base64 decode.
+    Returns decoded string and metadata.
+    """
     try:
         decoded_bytes = base64.b64decode(s, validate=True)
         decoded_str = decoded_bytes.decode("utf-8", errors="replace")
@@ -155,7 +168,7 @@ def single_pass_base64_decode(s):
             "decoded": decoded_str,
             "valid_decode": True
         }
-    except Exception:
+    except (binascii.Error, UnicodeDecodeError):
         return {
             "original": s,
             "decoded": None,
